@@ -1,0 +1,67 @@
+<!-- I also want to add until any key and unless any key is pressed the display will be none for both p present in line 31,32 and there result also where when any key pressed they p in line 31,32 will be visible and p in line 30 willl invisible or none-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.351);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .container:hover {
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.351);
+        }
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .gradient-text {
+            background: linear-gradient(150deg, rgb(255, 0, 43), rgb(0, 195, 255));
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Key Ascii Value</h1>
+    <div class="container" id="container1">
+        <p id="p">Press any key on your keyboard to see its ASCII value.</p>
+    </div> 
+    <div class="container" id="container2">
+        <p id="k1">Pressed key: <span id="pressed-key" class="gradient-text"></span></p>
+    </div> 
+    <div class="container" id="container3">
+        <p id="k2">ASCII value: <span id="ascii-value" class="gradient-text"></span></p>
+    </div>
+    <script>
+        document.getElementById("container2").style.display = 'none';
+        document.getElementById("container3").style.display = 'none';
+
+        document.addEventListener("keydown", function(event) {
+            var pressedKey = event.key;
+            var asciiValue = event.keyCode;
+            document.getElementById("container1").style.display = 'none';
+            document.getElementById("container2").style.display = 'block';
+            document.getElementById("container3").style.display = 'block';
+            document.getElementById("pressed-key").textContent = pressedKey;
+            document.getElementById("ascii-value").textContent = asciiValue;
+        });
+    </script>
+</body>
+</html>
